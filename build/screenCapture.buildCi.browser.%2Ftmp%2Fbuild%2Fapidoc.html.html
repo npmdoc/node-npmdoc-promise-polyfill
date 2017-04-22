@@ -1,0 +1,408 @@
+<html><head></head><body><div class="apidocDiv">
+<style>
+/*csslint
+*/
+.apidocDiv {
+    background: #fff;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.apidocDiv a[href] {
+    color: #33f;
+    font-weight: bold;
+    text-decoration: none;
+}
+.apidocDiv a[href]:hover {
+    text-decoration: underline;
+}
+.apidocCodeCommentSpan {
+    background: #bbf;
+    color: #000;
+    display: block;
+}
+.apidocCodeKeywordSpan {
+    color: #d00;
+    font-weight: bold;
+}
+.apidocCodePre {
+    background: #eef;
+    border: 1px solid;
+    color: #777;
+    padding: 5px;
+    white-space: pre-wrap;
+}
+.apidocFooterDiv {
+    margin-top: 20px;
+    text-align: center;
+}
+.apidocModuleLi {
+    margin-top: 10px;
+}
+.apidocSectionDiv {
+    border-top: 1px solid;
+    margin-top: 20px;
+}
+.apidocSignatureSpan {
+    color: #777;
+    font-weight: bold;
+}
+</style>
+<h1>api documentation for
+    <a href="https://github.com/taylorhakes/promise-polyfill">promise-polyfill (v6.0.2)</a>
+</h1>
+<h4>Lightweight promise polyfill. A+ compliant</h4>
+<div class="apidocSectionDiv"><a href="#apidoc.tableOfContents" id="apidoc.tableOfContents"><h1>table of contents</h1></a><ol>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.promise-polyfill">module promise-polyfill</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.promise-polyfill.promise-polyfill">
+            function <span class="apidocSignatureSpan"></span>promise-polyfill
+            <span class="apidocSignatureSpan">(fn)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.promise-polyfill._immediateFn">
+            function <span class="apidocSignatureSpan">promise-polyfill.</span>_immediateFn
+            <span class="apidocSignatureSpan">(fn)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.promise-polyfill._setImmediateFn">
+            function <span class="apidocSignatureSpan">promise-polyfill.</span>_setImmediateFn
+            <span class="apidocSignatureSpan">(fn)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.promise-polyfill._setUnhandledRejectionFn">
+            function <span class="apidocSignatureSpan">promise-polyfill.</span>_setUnhandledRejectionFn
+            <span class="apidocSignatureSpan">(fn)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.promise-polyfill._unhandledRejectionFn">
+            function <span class="apidocSignatureSpan">promise-polyfill.</span>_unhandledRejectionFn
+            <span class="apidocSignatureSpan">(err)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.promise-polyfill.all">
+            function <span class="apidocSignatureSpan">promise-polyfill.</span>all
+            <span class="apidocSignatureSpan">(arr)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.promise-polyfill.race">
+            function <span class="apidocSignatureSpan">promise-polyfill.</span>race
+            <span class="apidocSignatureSpan">(values)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.promise-polyfill.reject">
+            function <span class="apidocSignatureSpan">promise-polyfill.</span>reject
+            <span class="apidocSignatureSpan">(value)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.promise-polyfill.resolve">
+            function <span class="apidocSignatureSpan">promise-polyfill.</span>resolve
+            <span class="apidocSignatureSpan">(value)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+</ol></div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.promise-polyfill" id="apidoc.module.promise-polyfill">module promise-polyfill</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.promise-polyfill.promise-polyfill" id="apidoc.element.promise-polyfill.promise-polyfill">
+        function <span class="apidocSignatureSpan"></span>promise-polyfill
+        <span class="apidocSignatureSpan">(fn)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function Promise(fn) {
+  if (typeof this !== 'object') throw new TypeError('Promises must be constructed via new');
+  if (typeof fn !== 'function') throw new TypeError('not a function');
+  this._state = 0;
+  this._handled = false;
+  this._value = undefined;
+  this._deferreds = [];
+
+  doResolve(fn, this);
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.promise-polyfill._immediateFn" id="apidoc.element.promise-polyfill._immediateFn">
+        function <span class="apidocSignatureSpan">promise-polyfill.</span>_immediateFn
+        <span class="apidocSignatureSpan">(fn)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">_immediateFn = function (fn) { setImmediate(fn); }</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+  self = self._value;
+}
+if (self._state === 0) {
+  self._deferreds.push(deferred);
+  return;
+}
+self._handled = true;
+Promise.<span class="apidocCodeKeywordSpan">_immediateFn</span>(function () {
+  var cb = self._state === 1 ? deferred.onFulfilled : deferred.onRejected;
+  if (cb === null) {
+    (self._state === 1 ? resolve : reject)(deferred.promise, self._value);
+    return;
+  }
+  var ret;
+  try {
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.promise-polyfill._setImmediateFn" id="apidoc.element.promise-polyfill._setImmediateFn">
+        function <span class="apidocSignatureSpan">promise-polyfill.</span>_setImmediateFn
+        <span class="apidocSignatureSpan">(fn)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function _setImmediateFn(fn) {
+  Promise._immediateFn = fn;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+prom.then(function(result) {
+  // Do something when async done
+});
+```
+
+## Deprecations
+- `Promise.<span class="apidocCodeKeywordSpan">_setImmediateFn</span>(&lt;immediateFn&gt;)` has been deprecated. Use `Promise
+._immediateFn = &lt;immediateFn&gt;;` instead.
+- `Promise._setUnhandledRejectionFn(&lt;rejectionFn&gt;)` has been deprecated. Use `Promise._unhandledRejectionFn = &lt;rejectionFn
+&gt;` instead.
+These functions will be removed in the next major version.
+
+## Performance
+By default promise-polyfill uses `setImmediate`, but falls back to `setTimeout` for executing asynchronously. If a browser does
+not support `setImmediate` (IE/Edge are the only browsers with setImmediate), you may see performance issues.
+Use a `setImmediate` polyfill to fix this issue. [setAsap](https://github.com/taylorhakes/setAsap) or [setImmediate](https://github
+.com/YuzuJS/setImmediate) work well.
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.promise-polyfill._setUnhandledRejectionFn" id="apidoc.element.promise-polyfill._setUnhandledRejectionFn">
+        function <span class="apidocSignatureSpan">promise-polyfill.</span>_setUnhandledRejectionFn
+        <span class="apidocSignatureSpan">(fn)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function _setUnhandledRejectionFn(fn) {
+  Promise._unhandledRejectionFn = fn;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+prom.then(function(result) {
+  // Do something when async done
+});
+```
+
+## Deprecations
+- `Promise._setImmediateFn(&lt;immediateFn&gt;)` has been deprecated. Use `Promise._immediateFn = &lt;immediateFn&gt;;`
+instead.
+- `Promise.<span class="apidocCodeKeywordSpan">_setUnhandledRejectionFn</span>(&lt;rejectionFn&gt;)` has been deprecated. Use
+ `Promise._unhandledRejectionFn = &lt;rejectionFn&gt;` instead.
+These functions will be removed in the next major version.
+
+## Performance
+By default promise-polyfill uses `setImmediate`, but falls back to `setTimeout` for executing asynchronously. If a browser does
+not support `setImmediate` (IE/Edge are the only browsers with setImmediate), you may see performance issues.
+Use a `setImmediate` polyfill to fix this issue. [setAsap](https://github.com/taylorhakes/setAsap) or [setImmediate](https://github
+.com/YuzuJS/setImmediate) work well.
+
+If you polyfill `window.setImmediate` or use `Promise._immediateFn = yourImmediateFn` it will be used instead of `window.setTimeout
+`
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.promise-polyfill._unhandledRejectionFn" id="apidoc.element.promise-polyfill._unhandledRejectionFn">
+        function <span class="apidocSignatureSpan">promise-polyfill.</span>_unhandledRejectionFn
+        <span class="apidocSignatureSpan">(err)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function _unhandledRejectionFn(err) {
+  if (typeof console !== 'undefined' &amp;&amp; console) {
+    console.warn('Possible Unhandled Promise Rejection:', err); // eslint-disable-line no-console
+  }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+finale(self);
+  }
+
+  function finale(self) {
+if (self._state === 2 &amp;&amp; self._deferreds.length === 0) {
+  Promise._immediateFn(function() {
+    if (!self._handled) {
+      Promise.<span class="apidocCodeKeywordSpan">_unhandledRejectionFn</span>(self._value);
+    }
+  });
+}
+
+for (var i = 0, len = self._deferreds.length; i &lt; len; i++) {
+  handle(self, self._deferreds[i]);
+}
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.promise-polyfill.all" id="apidoc.element.promise-polyfill.all">
+        function <span class="apidocSignatureSpan">promise-polyfill.</span>all
+        <span class="apidocSignatureSpan">(arr)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">all = function (arr) {
+  var args = Array.prototype.slice.call(arr);
+
+  return new Promise(function (resolve, reject) {
+    if (args.length === 0) return resolve([]);
+    var remaining = args.length;
+
+    function res(i, val) {
+      try {
+        if (val &amp;&amp; (typeof val === 'object' || typeof val === 'function')) {
+          var then = val.then;
+          if (typeof then === 'function') {
+            then.call(val, function (val) {
+              res(i, val);
+            }, reject);
+            return;
+          }
+        }
+        args[i] = val;
+        if (--remaining === 0) {
+          resolve(args);
+        }
+      } catch (ex) {
+        reject(ex);
+      }
+    }
+
+    for (var i = 0; i &lt; args.length; i++) {
+      res(i, args[i]);
+    }
+  });
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.promise-polyfill.race" id="apidoc.element.promise-polyfill.race">
+        function <span class="apidocSignatureSpan">promise-polyfill.</span>race
+        <span class="apidocSignatureSpan">(values)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">race = function (values) {
+  return new Promise(function (resolve, reject) {
+    for (var i = 0, len = values.length; i &lt; len; i++) {
+      values[i].then(resolve, reject);
+    }
+  });
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.promise-polyfill.reject" id="apidoc.element.promise-polyfill.reject">
+        function <span class="apidocSignatureSpan">promise-polyfill.</span>reject
+        <span class="apidocSignatureSpan">(value)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">reject = function (value) {
+  return new Promise(function (resolve, reject) {
+    reject(value);
+  });
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.promise-polyfill.resolve" id="apidoc.element.promise-polyfill.resolve">
+        function <span class="apidocSignatureSpan">promise-polyfill.</span>resolve
+        <span class="apidocSignatureSpan">(value)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">resolve = function (value) {
+  if (value &amp;&amp; typeof value === 'object' &amp;&amp; value.constructor === Promise) {
+    return value;
+  }
+
+  return new Promise(function (resolve) {
+    resolve(value);
+  });
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocFooterDiv">
+    [ this document was created with
+    <a href="https://github.com/kaizhu256/node-utility2" target="_blank">utility2</a>
+    ]
+</div>
+</div>
+</body></html>
